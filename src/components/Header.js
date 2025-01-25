@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { keyframes } from "@emotion/react";
 import backgroundImage from "../wall-and-laptop-background.png";
 
@@ -12,49 +12,100 @@ const zoomAnimation = keyframes`
   }
 `;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const Header = () => {
   const headerStyle = {
-    width: '100%',
-    height: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: "100%",
+    height: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    overflow: 'hidden',
-    position: 'relative',
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    overflow: "hidden",
+    position: "relative",
     marginBottom: 8,
-    animation: `${zoomAnimation} 10s infinite alternate`, // Apply the zooming animation here
+    animation: `${zoomAnimation} 15s infinite alternate`,
   };
 
   const overlayStyle = {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
-    width: '100%',
-    height: '100vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    width: "100%",
+    height: "100%",
+    background:
+      "linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9))",
     zIndex: 1,
   };
 
   const mainInfoStyle = {
     zIndex: 2,
-    textAlign: 'center',
-    maxWidth: '80%',
-    padding: '20px',
-    backgroundColor: 'rgba(255, 255, 255, 0.7)',
-    borderRadius: '10px',
-    backdropFilter: 'blur(5px)',
+    textAlign: "center",
+    maxWidth: "80%",
+    padding: "20px",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    borderRadius: "10px",
+    backdropFilter: "blur(10px)",
+    animation: `${fadeIn} 1.5s ease-in-out`,
+  };
+
+  const buttonStyle = {
+    marginTop: "20px",
+    padding: "10px 20px",
+    fontSize: "1rem",
+    fontWeight: "bold",
+    color: "#fff",
+    backgroundColor: "#007BFF",
+    borderRadius: "25px",
+    textTransform: "none",
+    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+    transition: "background-color 0.3s, transform 0.2s",
+    "&:hover": {
+      backgroundColor: "#0056b3",
+      transform: "scale(1.05)",
+    },
   };
 
   return (
     <Box id="home" className="header-wrapper" sx={headerStyle}>
       <Box sx={overlayStyle}></Box>
       <Box className="main-info" sx={mainInfoStyle}>
-        <Typography variant="h2" gutterBottom>
-          Web Development
+        <Typography
+          variant="h2"
+          gutterBottom
+          sx={{
+            fontWeight: "bold",
+            color: "#fff",
+            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
+          }}
+        >
+          Full-Stack Web Developer
         </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            color: "#ddd",
+            marginBottom: "20px",
+            textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)",
+          }}
+        >
+          Crafting modern, scalable, and user-centric web applications.
+        </Typography>
+        <Button sx={buttonStyle} href="#portfolio">
+          View My Work
+        </Button>
       </Box>
     </Box>
   );

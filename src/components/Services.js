@@ -1,41 +1,87 @@
 import React from "react";
 import { Box, Typography, Grid, Paper, Avatar } from "@mui/material";
+import { styled } from "@mui/system";
+import CodeIcon from "@mui/icons-material/Code";
+import WebIcon from "@mui/icons-material/Web";
+import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
+import MemoryIcon from "@mui/icons-material/Memory";
+
+const ServicePaper = styled(Paper)(({ theme }) => ({
+  padding: "20px",
+  textAlign: "center",
+  minHeight: "250px",
+  transition: "transform 0.3s, background-color 0.3s",
+  "&:hover": {
+    transform: "scale(1.05)",
+    backgroundColor: "#007BFF",
+  },
+}));
+
+const ServiceAvatar = styled(Avatar)(({ theme }) => ({
+  width: theme.spacing(7),
+  height: theme.spacing(7),
+  margin: theme.spacing(2, "auto"),
+  backgroundColor: "#007BFF",
+}));
 
 const Services = () => {
+  const services = [
+    {
+      title: "Full-Stack Development",
+      desc: "Building robust, scalable applications using React, GraphQL, and TypeScript.",
+      icon: <CodeIcon />,
+    },
+    {
+      title: "Frontend Expertise",
+      desc: "Designing user-centric web interfaces with React, Redux, and Material-UI.",
+      icon: <WebIcon />,
+    },
+    {
+      title: "API Integration",
+      desc: "Implementing efficient RESTful APIs and GraphQL endpoints for seamless data flow.",
+      icon: <IntegrationInstructionsIcon />,
+    },
+    {
+      title: "Backend Solutions",
+      desc: "Crafting high-performance server-side architectures using Node.js, Python, and PHP.",
+      icon: <MemoryIcon />,
+    },
+  ];
+
   return (
-    <Box id="services" className="services" sx={{ padding: '60px 80px' }}> {/* Adjusted the padding here */}
-      <Typography variant="h4" align="center" gutterBottom sx={{marginBottom: 5}}>
+    <Box
+      id="services"
+      sx={{
+        padding: "60px 80px",
+        background: "linear-gradient(135deg, #f0f4f8, #ffffff)",
+        borderRadius: "15px",
+      }}
+    >
+      <Typography
+        variant="h4"
+        align="center"
+        gutterBottom
+        sx={{ marginBottom: 5, fontWeight: "bold", color: "#212529" }}
+      >
         My Services
       </Typography>
       <Grid container spacing={4} justifyContent="center">
-        {[
-          { title: "Web Development", desc: "Crafting modern and efficient websites using the latest proven technologies." },
-          { title: "React/React Native", desc: "Individualized and results-focused development with React and React Native." },
-          { title: "Javascript/Typescript", desc: "Delivering bespoke, results-oriented solutions in JavaScript and TypeScript." },
-          { title: "Python/Ruby", desc: "Tailoring high-efficiency applications using Python and Ruby, with a focus on the end goal." },
-        ].map((service, index) => (
+        {services.map((service, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
-            <Paper elevation={3}   sx={{ 
-                padding: '20px', 
-                textAlign: 'center', 
-                minHeight: '250px',
-                transition: 'transform 0.3s, background-color 0.3s', // Added a smooth transition
-                '&:hover': {
-                  transform: 'scale(1.05)',  // Scale the paper on hover
-                  backgroundColor: theme => theme.palette.grey[300], // Change background color on hover
-                }
-              }}>
-              <Avatar sx={{
-                width: theme => theme.spacing(7),
-                height: theme => theme.spacing(7),
-                margin: theme => theme.spacing(2, 'auto'),
-                backgroundColor: theme => theme.palette.primary.main,
-              }}></Avatar>
-              <Typography variant="h6" sx={{ margin: theme => theme.spacing(1, 0) }}>
+            <ServicePaper elevation={3}>
+              <ServiceAvatar>{service.icon}</ServiceAvatar>
+              <Typography
+                variant="h6"
+                sx={{
+                  margin: (theme) => theme.spacing(1, 0),
+                  fontWeight: "bold",
+                  color: "#343A40",
+                }}
+              >
                 {service.title}
               </Typography>
-              <Typography>{service.desc}</Typography>
-            </Paper>
+              <Typography color="textSecondary">{service.desc}</Typography>
+            </ServicePaper>
           </Grid>
         ))}
       </Grid>
