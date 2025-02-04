@@ -12,23 +12,32 @@ import { styled } from "@mui/system";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const ProfileImage = styled(Avatar)({
-  width: "250px",
-  height: "250px",
+  width: "200px",
+  height: "200px",
   margin: "auto",
   boxShadow: "0 8px 20px rgba(0, 0, 0, 0.25)",
   border: "5px solid #fff",
+  "@media (max-width:600px)": {
+    width: "150px",
+    height: "150px",
+  },
 });
 
 const StyledButton = styled(Button)({
-  marginRight: "20px",
-  padding: "10px 20px",
+  marginRight: "10px",
+  padding: "8px 16px",
   fontWeight: "bold",
   borderRadius: "30px",
   backgroundColor: "#007BFF",
-  minWidth: "200px",
+  minWidth: "150px",
   transition: "background-color 0.3s ease",
   "&:hover": {
     backgroundColor: "#0056b3",
+  },
+  "@media (max-width:600px)": {
+    minWidth: "120px",
+    fontSize: "12px",
+    padding: "6px 12px",
   },
 });
 
@@ -37,7 +46,7 @@ const AboutMe = () => {
     <Container
       id="about"
       sx={{
-        py: [10, 8],
+        py: [8, 6],
         px: [2, 4],
         backgroundColor: "#000",
         borderRadius: "15px",
@@ -45,13 +54,11 @@ const AboutMe = () => {
         boxShadow: "0 8px 20px rgba(0, 0, 0, 0.3)",
       }}
     >
-      <Grid container spacing={5} alignItems="center">
-        <Grid item lg={6} xs={12}>
-          <Box display="flex" justifyContent="center" mb={5}>
-            <ProfileImage src={author} alt="author" />
-          </Box>
+      <Grid container spacing={4} alignItems="center" justifyContent="center">
+        <Grid item md={6} xs={12} display="flex" justifyContent="center">
+          <ProfileImage src={author} alt="author" />
         </Grid>
-        <Grid item lg={6} xs={12}>
+        <Grid item md={6} xs={12} textAlign={{ xs: "center", md: "left" }}>
           <Typography
             variant="h4"
             component="h1"
@@ -71,6 +78,7 @@ const AboutMe = () => {
               lineHeight: 1.8,
               marginBottom: "20px",
               color: "#ccc",
+              textAlign: "justify",
             }}
           >
             Results-driven Full-Stack Web Developer with expertise in
@@ -85,18 +93,23 @@ const AboutMe = () => {
             systems that significantly improved application speed, stability,
             and engagement.
           </Typography>
-          <StyledButton variant="contained" href="/Yann-Crenn.pdf" download>
-            Download Resume
-          </StyledButton>
-          <StyledButton
-            variant="contained"
-            href="https://www.linkedin.com/in/yann-crenn-23812b230/"
-            target="_blank"
-            rel="noopener noreferrer"
-            startIcon={<LinkedInIcon />}
+          <Box
+            display="flex"
+            justifyContent={{ xs: "center", md: "flex-start" }}
           >
-            LinkedIn
-          </StyledButton>
+            <StyledButton variant="contained" href="/Yann-Crenn.pdf" download>
+              Download Resume
+            </StyledButton>
+            <StyledButton
+              variant="contained"
+              href="https://www.linkedin.com/in/yann-crenn-23812b230/"
+              target="_blank"
+              rel="noopener noreferrer"
+              startIcon={<LinkedInIcon />}
+            >
+              LinkedIn
+            </StyledButton>
+          </Box>
         </Grid>
       </Grid>
     </Container>

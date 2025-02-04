@@ -11,6 +11,7 @@ import {
   CardMedia,
   CardActionArea,
   Button,
+  Grid,
 } from "@mui/material";
 import "react-popupbox/dist/react-popupbox.css";
 
@@ -70,67 +71,59 @@ const Portfolio = () => {
   };
 
   return (
-    <Box id="portfolio" sx={{ padding: "60px 100px", background: "#f8f9fa" }}>
+    <Box id="portfolio" sx={{ padding: "60px 20px", background: "#f8f9fa" }}>
       <Box sx={{ textAlign: "center", marginBottom: "40px" }}>
         <Typography
           variant="h3"
           gutterBottom
-          sx={{ fontWeight: "bold", color: "#212529" }}
+          sx={{
+            fontWeight: "bold",
+            color: "#212529",
+            fontSize: { xs: "2rem", md: "3rem" },
+          }}
         >
           Portfolio
         </Typography>
         <Typography
           variant="body1"
-          sx={{ maxWidth: "600px", margin: "auto", color: "#6c757d" }}
+          sx={{
+            maxWidth: "600px",
+            margin: "auto",
+            color: "#6c757d",
+            fontSize: { xs: "0.9rem", md: "1rem" },
+          }}
         >
           A showcase of my projects, demonstrating expertise in full-stack
           development and modern web technologies.
         </Typography>
       </Box>
 
-      <Box
-        sx={{
-          display: "flex",
-          overflowX: "auto",
-          gap: 4,
-          padding: 2,
-          paddingRight: "50px",
-          scrollbarWidth: "none",
-          "&::-webkit-scrollbar": { display: "none" },
-        }}
-      >
+      <Grid container spacing={3} justifyContent="center">
         {projects.map((project, index) => (
-          <Card
-            key={index}
-            onClick={() => openPopup(project)}
-            sx={{
-              cursor: "pointer",
-              minWidth: "300px",
-              flexShrink: 0,
-              "&:hover": {
-                transform: "scale(1.05)",
-                boxShadow: 6,
-              },
-              transition: "transform 0.3s, box-shadow 0.3s",
-            }}
-          >
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="200"
-                image={project.img}
-                alt={project.title}
-                sx={{
-                  transition: "transform 0.3s",
-                  "&:hover": {
-                    transform: "scale(1.1)",
-                  },
-                }}
-              />
-            </CardActionArea>
-          </Card>
+          <Grid item xs={12} sm={6} md={3} key={index}>
+            <Card
+              onClick={() => openPopup(project)}
+              sx={{
+                cursor: "pointer",
+                transition: "transform 0.3s, box-shadow 0.3s",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                  boxShadow: 6,
+                },
+              }}
+            >
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={project.img}
+                  alt={project.title}
+                />
+              </CardActionArea>
+            </Card>
+          </Grid>
         ))}
-      </Box>
+      </Grid>
 
       <PopupboxContainer
         config={{

@@ -37,6 +37,10 @@ const Header = () => {
     position: "relative",
     marginBottom: 8,
     animation: `${zoomAnimation} 15s infinite alternate`,
+    "@media (max-width:600px)": {
+      height: "80vh",
+      backgroundSize: "cover",
+    },
   };
 
   const overlayStyle = {
@@ -59,6 +63,10 @@ const Header = () => {
     borderRadius: "10px",
     backdropFilter: "blur(10px)",
     animation: `${fadeIn} 1.5s ease-in-out`,
+    "@media (max-width:600px)": {
+      maxWidth: "90%",
+      padding: "15px",
+    },
   };
 
   const buttonStyle = {
@@ -76,6 +84,10 @@ const Header = () => {
       backgroundColor: "#0056b3",
       transform: "scale(1.05)",
     },
+    "@media (max-width:600px)": {
+      padding: "8px 16px",
+      fontSize: "0.9rem",
+    },
   };
 
   return (
@@ -89,6 +101,9 @@ const Header = () => {
             fontWeight: "bold",
             color: "#fff",
             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
+            "@media (max-width:600px)": {
+              fontSize: "1.8rem",
+            },
           }}
         >
           Full-Stack Web Developer
@@ -99,6 +114,9 @@ const Header = () => {
             color: "#ddd",
             marginBottom: "20px",
             textShadow: "1px 1px 3px rgba(0, 0, 0, 0.5)",
+            "@media (max-width:600px)": {
+              fontSize: "1rem",
+            },
           }}
         >
           Crafting modern, scalable, and user-centric web applications.
