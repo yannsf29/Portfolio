@@ -5,6 +5,7 @@ import CodeIcon from "@mui/icons-material/Code";
 import WebIcon from "@mui/icons-material/Web";
 import IntegrationInstructionsIcon from "@mui/icons-material/IntegrationInstructions";
 import MemoryIcon from "@mui/icons-material/Memory";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
 
 const ServicePaper = styled(Paper)(({ theme }) => ({
   padding: "20px",
@@ -45,6 +46,11 @@ const Services = () => {
       title: "Backend Solutions",
       desc: "Crafting high-performance server-side architectures using Node.js, Python, and PHP.",
       icon: <MemoryIcon />,
+    },
+    {
+      title: "AI & Chatbot Integration",
+      desc: "Enhancing user engagement with AI-driven chatbots and automation solutions.",
+      icon: <SmartToyIcon />,
     },
   ];
 
