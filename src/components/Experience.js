@@ -58,11 +58,10 @@ const Experience = () => {
           title: "Meta / Sigma Connectivity - Carlsbad, CA",
           date: "July 2024 to Present",
           details: [
-            "Successfully migrated a critical component of the Workplace platform to a new architecture.",
-            "Improved the overall reliability of the Workplace platform by implementing automated error detection and alerting systems.",
-            "Implemented automated testing and deployment scripts to streamline the development process and reduce errors.",
-            "Worked closely with the core engineering team to resolve complex technical issues and improve overall system reliability and performance.",
-            "Contributed to the development of internal tools and processes to improve engineering efficiency and productivity.",
+            "Security & privacy: Strengthened access controls, encryption, and data-retention practices across coresystems; partnered with platform and data teams to make secure-by-default the norm.",
+            "Reliability & operations: Improved logs/metrics and alerting, led on-call incident response with clearrunbooks, and reduced time to detect and recover production issues.",
+            "Product quality: Diagnosed and resolved user-facing issues across critical messaging flows, deliveringend-to-end fixes across web/mobile frontends and backend services.",
+            "Developer velocity: Stabilized CI/CD and data pipelines, simplified schemas/code generation, and documented workflows and handoffs to keep builds green and teams unblocked.",
           ],
         },
         {

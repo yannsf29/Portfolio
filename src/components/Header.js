@@ -119,7 +119,7 @@ const Header = () => {
             },
           }}
         >
-          Crafting modern, scalable, and user-centric web applications.
+         Crafting modern, scalable, and AI-powered web applications.
         </Typography>
         <Button sx={buttonStyle} href="#portfolio">
           View My Work
